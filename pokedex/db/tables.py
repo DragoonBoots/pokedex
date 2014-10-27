@@ -1252,6 +1252,10 @@ class MoveChangelog(TableBase):
         doc=u"Prior ID of the effect, or NULL if unchanged")
     effect_chance = Column(Integer, nullable=True,
         doc=u"Prior effect chance, or NULL if unchanged")
+    priority = Column(SmallInteger, nullable=True,
+        doc=u"Prior move priority, or NULL if unchanged")
+    target_id = Column(Integer, ForeignKey("move_targets.id"), nullable=True,
+        doc=u"Prior move target(s), or NULL if unchanged")
 
 class MoveDamageClass(TableBase):
     u"""Any of the damage classes moves can have, i.e. physical, special, or non-damaging."""
